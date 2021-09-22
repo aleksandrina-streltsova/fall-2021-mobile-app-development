@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
  class MainActivity : AppCompatActivity(R.layout.activity_main) {
-     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-         super.onCreate(savedInstanceState, persistentState)
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
          val recyclerView = findViewById<RecyclerView>(R.id.usersRecyclerView)
          recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
          val adapter = UserAdapter()
@@ -19,7 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 
      private fun loadUsers(): List<User> {
          return listOf(
-
+                User("","User1","Math"),
+                User("","User2","Physics")
          )
      }
 }

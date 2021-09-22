@@ -12,9 +12,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         style="@style/TextAppearance.MaterialComponents.Headline6"
@@ -23,23 +22,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         tools:text="First row"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@+id/groupNameTextView"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatarImageView"
-        app:layout_constraintBottom_toTopOf="@+id/groupNameTextView"/>
+        app:layout_constraintStart_toEndOf="@+id/avatarImageView"/>
 
     <TextView
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="8dp"
         android:id="@+id/groupNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         tools:text="Second row"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/userNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/avatarImageView"/>
+        app:layout_constraintStart_toEndOf="@+id/avatarImageView"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
