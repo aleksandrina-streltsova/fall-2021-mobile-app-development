@@ -1,6 +1,9 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.userlist
 
 import androidx.lifecycle.viewModelScope
+import com.aleksandrinastreltsova.application.data.network.Api
+import com.aleksandrinastreltsova.application.ui.base.BaseViewModel
+import com.aleksandrinastreltsova.application.entity.User
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

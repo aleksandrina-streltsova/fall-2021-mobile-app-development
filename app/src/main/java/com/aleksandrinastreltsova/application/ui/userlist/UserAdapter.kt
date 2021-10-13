@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.userlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.aleksandrinastreltsova.application.R
+import com.aleksandrinastreltsova.application.entity.User
 import com.bumptech.glide.Glide
 
 class UserAdapter: RecyclerView.Adapter<UserAdapter.ViewHolder>( ) {

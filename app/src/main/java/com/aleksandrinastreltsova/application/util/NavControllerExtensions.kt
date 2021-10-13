@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.util
 
 import androidx.navigation.NavController
 import timber.log.Timber
