@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.onboarding
 
 import com.aleksandrinastreltsova.application.databinding.ItemOnboardindTextBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding

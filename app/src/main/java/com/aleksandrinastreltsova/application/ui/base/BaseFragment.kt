@@ -1,8 +1,11 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.base
 
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.aleksandrinastreltsova.application.BuildConfig
+import com.aleksandrinastreltsova.application.util.logBackstack
+import com.aleksandrinastreltsova.application.util.logFragmentHierarchy
 import timber.log.Timber
 
 open class BaseFragment : Fragment {

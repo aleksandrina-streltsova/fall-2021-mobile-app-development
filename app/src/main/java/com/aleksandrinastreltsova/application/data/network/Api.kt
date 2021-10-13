@@ -1,5 +1,6 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.data.network
 
+import com.aleksandrinastreltsova.application.entity.User
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import retrofit2.http.GET

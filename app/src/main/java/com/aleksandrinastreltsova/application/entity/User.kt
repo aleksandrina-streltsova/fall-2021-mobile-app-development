@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.entity
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

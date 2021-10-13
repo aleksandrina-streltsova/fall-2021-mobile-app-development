@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.onboarding
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.aleksandrinastreltsova.application.databinding.FragmentOnboardingBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.aleksandrinastreltsova.application.R
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player

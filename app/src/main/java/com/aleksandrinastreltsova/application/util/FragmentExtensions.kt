@@ -1,6 +1,7 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.util
 
 import androidx.fragment.app.Fragment
+import com.aleksandrinastreltsova.application.BuildConfig
 import timber.log.Timber
 
 fun Fragment.logFragmentHierarchy(tag: String? = null) {
