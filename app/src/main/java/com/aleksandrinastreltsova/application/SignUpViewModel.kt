@@ -1,3 +1,3 @@
 package com.aleksandrinastreltsova.application
 
-class MainViewModel : BaseViewModel()
+class SignUpViewModel : BaseViewModel()
