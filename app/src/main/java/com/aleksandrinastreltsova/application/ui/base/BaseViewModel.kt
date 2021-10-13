@@ -1,4 +1,4 @@
-package com.aleksandrinastreltsova.application
+package com.aleksandrinastreltsova.application.ui.base
 
 import androidx.lifecycle.ViewModel
 
