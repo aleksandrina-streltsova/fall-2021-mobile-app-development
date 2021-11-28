@@ -15,6 +15,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import dev.chrisbanes.insetter.applyInsetter
 
 class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
     private val viewBinding by viewBinding(FragmentOnboardingBinding::bind)
@@ -31,6 +32,12 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewBinding.volumeControlButton.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
+        viewBinding.signUpButton.applyInsetter {
+            type(navigationBars = true) { margin() }
+        }
         val volume = player?.volume ?: 0f
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()

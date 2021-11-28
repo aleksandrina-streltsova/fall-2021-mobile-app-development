@@ -32,6 +32,12 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "streltsova-aleksandrina-${variant.versionName}-${variant.buildType.name}.apk"
+        }
+    }
 }
 
 dependencies {
@@ -82,4 +88,9 @@ dependencies {
 
     // Logger.
     implementation "com.jakewharton.timber:timber:4.7.1"
+
+    // System insets handling.
+    // https://chrisbanes.github.io/insetter
+    // https://github.com/chrisbanes/insetter
+    implementation "dev.chrisbanes.insetter:insetter:0.6.0"
 }
