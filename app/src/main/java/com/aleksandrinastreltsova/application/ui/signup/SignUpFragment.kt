@@ -18,6 +18,7 @@ import com.aleksandrinastreltsova.application.R
 import com.aleksandrinastreltsova.application.databinding.FragmentSignUpBinding
 import com.aleksandrinastreltsova.application.ui.base.BaseFragment
 import com.aleksandrinastreltsova.application.util.setClubRulesText
+import dev.chrisbanes.insetter.applyInsetter
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -40,6 +41,12 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToEvents()
+        viewBinding.backButton.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
+        viewBinding.signUpButton.applyInsetter {
+            type(navigationBars = true) { margin() }
+        }
         viewBinding.backButton.setOnClickListener {
             onBackButtonPressed()
         }
