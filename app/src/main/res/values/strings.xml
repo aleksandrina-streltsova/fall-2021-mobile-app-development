@@ -26,4 +26,8 @@
     <string name="sign_up_email_text_layout_helper">Будет скрыта от других пользователей</string>
     <string name="sign_up_password_text_layout_hint">Пароль</string>
     <string name="sign_up_sign_up_button_text">Зарегистрироваться</string>
+    <string name="email_confirmation_enter_code">Введите код, отправленный вам на почту</string>
+    <string name="email_confirmation_confirm">Подтвердить</string>
+    <string name="email_confirmation_send_code_again">Отправить код повторно</string>
+    <string name="email_confirmation_open_email">Открыть почту</string>
 </resources>

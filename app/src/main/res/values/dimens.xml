@@ -9,6 +9,6 @@
     <dimen name="edit_text_horizontal_padding">16dp</dimen>
     <dimen name="bottom_sheet_toolbar_height">48dp</dimen>
     <dimen name="verification_code_slot_corner_radius">10dp</dimen>
-    <dimen name="verification_code_slot_width">48dp</dimen>
-    <dimen name="verification_code_slot_height">56dp</dimen>
+    <dimen name="verification_code_slot_width">36dp</dimen>
+    <dimen name="verification_code_slot_height">48dp</dimen>
 </resources>

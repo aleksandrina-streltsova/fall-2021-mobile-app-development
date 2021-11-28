@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="gray">#FFCCCCCC</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="brand_orange">#FFF58C29</color>
+    <color name="brand_turquoise">#FF1ECECA</color>
+    <color name="brand_blue">#FF0074C8</color>
 </resources>
