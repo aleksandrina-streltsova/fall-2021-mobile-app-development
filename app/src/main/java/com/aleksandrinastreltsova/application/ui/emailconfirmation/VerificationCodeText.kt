@@ -8,13 +8,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
+import com.aleksandrinastreltsova.application.R
 import com.aleksandrinastreltsova.application.databinding.ViewVerificationCodeEditTextBinding
 import java.lang.Math.min
 
 class VerificationCodeEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = R.attr.verificationCodeEditTextStyle, // TODO: handle non-constant number of slots
     defStyleRes: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
