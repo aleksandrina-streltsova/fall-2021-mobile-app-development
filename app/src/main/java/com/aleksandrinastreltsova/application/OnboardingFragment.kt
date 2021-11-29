@@ -30,6 +30,7 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val volume = player?.volume ?: 0f
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()
         viewBinding.viewPager.attachDots(viewBinding.onboardingTextTabLayout)
@@ -41,6 +42,13 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
             // TODO: Go to SignUpFragment.
             Toast.makeText(requireContext(), "Нажата кнопка зарегистрироваться", Toast.LENGTH_SHORT).show()
         }
+        viewBinding.volumeControlButton.setOnClickListener {
+            val isSelected = !viewBinding.volumeControlButton.isSelected
+            viewBinding.volumeControlButton.isSelected = isSelected
+            viewBinding.playerView.player?.volume  = if (isSelected) volume else 0f
+        }
+        viewBinding.volumeControlButton.isSelected = false
+        viewBinding.playerView.player?.volume  = 0f
     }
 
     override fun onResume() {
