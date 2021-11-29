@@ -11,8 +11,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.aleksandrinastreltsova.application.ui.base.BaseFragment
 import com.aleksandrinastreltsova.application.R
 import com.aleksandrinastreltsova.application.databinding.FragmentSignInBinding
+import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 
+@AndroidEntryPoint
 class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
 
     private val viewBinding by viewBinding(FragmentSignInBinding::bind)

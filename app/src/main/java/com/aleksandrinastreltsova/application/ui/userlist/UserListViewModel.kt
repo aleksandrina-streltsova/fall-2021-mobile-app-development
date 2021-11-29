@@ -1,7 +1,9 @@
 package com.aleksandrinastreltsova.application.ui.userlist
 
 import androidx.lifecycle.viewModelScope
+import com.aleksandrinastreltsova.application.BuildConfig
 import com.aleksandrinastreltsova.application.data.network.Api
+import com.aleksandrinastreltsova.application.data.network.MockApi
 import com.aleksandrinastreltsova.application.ui.base.BaseViewModel
 import com.aleksandrinastreltsova.application.entity.User
 import com.squareup.moshi.Moshi
@@ -37,14 +39,17 @@ class UserListViewModel : BaseViewModel() {
         }
     }
 
-    private fun provideApi(): Api {
-        return Retrofit.Builder()
-            .client(provideOkHttpClient())
-            .baseUrl("https://reqres.in/api/")
-            .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
-            .build()
-            .create(Api::class.java)
-    }
+    private fun provideApi(): Api =
+        if (BuildConfig.USE_MOCK_BACKEND_API) {
+            MockApi()
+        } else {
+            Retrofit.Builder()
+                .client(provideOkHttpClient())
+                .baseUrl("https://reqres.in/api/")
+                .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
+                .build()
+                .create(Api::class.java)
+        }
 
     private fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder().build()
