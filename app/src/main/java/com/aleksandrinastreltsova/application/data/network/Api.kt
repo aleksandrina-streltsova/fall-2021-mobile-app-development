@@ -6,6 +6,7 @@ import com.aleksandrinastreltsova.application.data.network.request.SignInWithEma
 import com.aleksandrinastreltsova.application.data.network.responce.VerificationTokenResponse
 import com.aleksandrinastreltsova.application.data.network.responce.error.*
 import com.aleksandrinastreltsova.application.entity.AuthTokens
+import com.aleksandrinastreltsova.application.entity.Post
 import com.aleksandrinastreltsova.application.entity.User
 import com.haroldadmin.cnradapter.NetworkResponse
 import retrofit2.http.*
@@ -40,4 +41,7 @@ interface Api {
     suspend fun createProfile(
         @Body request: CreateProfileRequest
     ): NetworkResponse<AuthTokens, CreateProfileErrorResponse>
+
+    @POST("posts")
+    suspend fun getPosts(): NetworkResponse<List<Post>, Unit>
 }
