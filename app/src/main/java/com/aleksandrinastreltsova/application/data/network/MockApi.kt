@@ -6,11 +6,24 @@ import com.aleksandrinastreltsova.application.data.network.request.SignInWithEma
 import com.aleksandrinastreltsova.application.data.network.responce.VerificationTokenResponse
 import com.aleksandrinastreltsova.application.data.network.responce.error.*
 import com.aleksandrinastreltsova.application.entity.AuthTokens
+import com.aleksandrinastreltsova.application.entity.Post
+import com.aleksandrinastreltsova.application.entity.User
 import com.haroldadmin.cnradapter.NetworkResponse
 
 class MockApi : Api {
-    override suspend fun getUsers(): GetUsersResponse {
-        TODO("Not yet implemented")
+
+    override suspend fun getUsers(): NetworkResponse<List<User>, Unit> {
+        return NetworkResponse.Success(
+            body = listOf(User(
+                id = 7,
+                username = "rediska",
+                firstName = "Маша",
+                lastName = "Иванов",
+                groupName = "Б10.МКН",
+                avatarUrl = "https://reqres.in/img/faces/3-image.jpg"
+            )),
+            code = 200
+        )
     }
 
     override suspend fun signInWithEmail(request: SignInWithEmailRequest): NetworkResponse<AuthTokens, SignInWithEmailErrorResponse> {
@@ -24,6 +37,7 @@ class MockApi : Api {
             code = 200
         )
     }
+
     override suspend fun refreshAuthTokens(request: RefreshAuthTokensRequest): NetworkResponse<AuthTokens, RefreshAuthTokensErrorResponse> {
         TODO("Not yet implemented")
     }
@@ -34,13 +48,16 @@ class MockApi : Api {
 
     override suspend fun verifyRegistrationCode(
         code: String,
-        email: String?,
-        phoneNumber: String?
+        email: String
     ): NetworkResponse<VerificationTokenResponse, VerifyRegistrationCodeErrorResponse> {
         TODO("Not yet implemented")
     }
 
     override suspend fun createProfile(request: CreateProfileRequest): NetworkResponse<AuthTokens, CreateProfileErrorResponse> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getPosts(): NetworkResponse<List<Post>, Unit> {
         TODO("Not yet implemented")
     }
 }

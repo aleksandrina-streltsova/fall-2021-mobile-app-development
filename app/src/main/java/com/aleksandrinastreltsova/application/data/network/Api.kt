@@ -8,14 +8,12 @@ import com.aleksandrinastreltsova.application.data.network.responce.error.*
 import com.aleksandrinastreltsova.application.entity.AuthTokens
 import com.aleksandrinastreltsova.application.entity.User
 import com.haroldadmin.cnradapter.NetworkResponse
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import retrofit2.http.*
 
 interface Api {
 
-    @GET("users?per_page=10")
-    suspend fun getUsers(): GetUsersResponse
+    @GET("users")
+    suspend fun getUsers(): NetworkResponse<List<User>, Unit>
 
     @POST("auth/sign-in-email")
     suspend fun signInWithEmail(
@@ -35,8 +33,7 @@ interface Api {
     @POST("registration/verification-code/verify")
     suspend fun verifyRegistrationCode(
         @Query("code") code: String,
-        @Query("email") email: String?,
-        @Query("phone_number") phoneNumber: String?
+        @Query("email") email: String
     ): NetworkResponse<VerificationTokenResponse, VerifyRegistrationCodeErrorResponse>
 
     @PUT("registration/create-profile")
@@ -44,8 +41,3 @@ interface Api {
         @Body request: CreateProfileRequest
     ): NetworkResponse<AuthTokens, CreateProfileErrorResponse>
 }
-
-@JsonClass(generateAdapter = true)
-data class GetUsersResponse(
-    @Json(name = "data") val data: List<User>
-)

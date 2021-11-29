@@ -11,9 +11,12 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.aleksandrinastreltsova.application.ui.base.BaseFragment
 import com.aleksandrinastreltsova.application.R
 import com.aleksandrinastreltsova.application.databinding.FragmentUserListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import dev.chrisbanes.insetter.applyInsetter
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class UserListFragment : BaseFragment(R.layout.fragment_user_list) {
 
     private val viewModel: UserListViewModel by viewModels()
@@ -23,6 +26,9 @@ class UserListFragment : BaseFragment(R.layout.fragment_user_list) {
         super.onCreate(savedInstanceState)
         setupRecyclerView()
         subscribeToViewState()
+        viewBinding.usersRecyclerView.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
     }
 
     private fun subscribeToViewState() {
