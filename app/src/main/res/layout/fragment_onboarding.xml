@@ -32,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_volume_off_white_24dp"
+        android:src="@drawable/volume_control_button_src"
         app:layout_constraintEnd_toEndOf="@+id/playerView"
         app:layout_constraintTop_toTopOf="@+id/playerView" />
 
