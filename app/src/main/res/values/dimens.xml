@@ -11,4 +11,6 @@
     <dimen name="verification_code_slot_corner_radius">10dp</dimen>
     <dimen name="verification_code_slot_width">36dp</dimen>
     <dimen name="verification_code_slot_height">48dp</dimen>
+    <dimen name="viewpager_next_item_visible">48dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">56dp</dimen>
 </resources>
