@@ -7,10 +7,13 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import com.aleksandrinastreltsova.application.R
 import com.aleksandrinastreltsova.application.databinding.ViewVerificationCodeEditTextBinding
 import java.lang.Math.min
+import kotlin.properties.Delegates
 
 class VerificationCodeEditText @JvmOverloads constructor(
     context: Context,
@@ -22,23 +25,43 @@ class VerificationCodeEditText @JvmOverloads constructor(
     private val viewBinding =
         ViewVerificationCodeEditTextBinding.inflate(LayoutInflater.from(context), this)
 
-    private val slotViews: List<VerificationCodeSlotView> =
-        listOf(
-            viewBinding.slot1,
-            viewBinding.slot2,
-            viewBinding.slot3,
-            viewBinding.slot4,
-            viewBinding.slot5,
-            viewBinding.slot6
-        )
+    private var numberOfSlots: Int by Delegates.observable(0) { _, _, newValue ->
+        viewBinding.verificationSlotsLayout.removeAllViews()
+        slotViews.clear()
+        for (i in 0 until newValue) {
+            val view =  VerificationCodeSlotView(context)
+            val width = resources.getDimension(R.dimen.verification_code_slot_width).toInt()
+            val height = resources.getDimension(R.dimen.verification_code_slot_height).toInt()
+            val margin = resources.getDimension(R.dimen.verification_code_slot_horizontal_margin).toInt()
+            view.background = ContextCompat.getDrawable(context, R.drawable.selector_bg_verification_code_slot)
+            view.layoutParams = LayoutParams(width, height)
+            view.updateLayoutParams<LayoutParams> {
+                marginStart = margin
+                marginEnd = margin
+            }
+            viewBinding.verificationSlotsLayout.addView(view, i)
+            slotViews.add(view)
+        }
+        slotValues = Array(newValue) { null }
+    }
 
-    private var slotValues: Array<CharSequence?> = Array(6) { null }
+    private val slotViews: MutableList<VerificationCodeSlotView> = mutableListOf()
+
+    private var slotValues: Array<CharSequence?> = Array(0) { null }
 
     var onVerificationCodeFilledListener: (String) -> Unit = {}
 
     var onVerificationCodeFilledChangeListener: (Boolean) -> Unit = {}
 
     init {
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.VerificationCodeEditText,
+            defStyleAttr,
+            defStyleRes
+        ).apply {
+            numberOfSlots = getInt(R.styleable.VerificationCodeEditText_vcet_numberOfSlots, 0)
+        }
         viewBinding.realVerificationCodeEditText.addTextChangedListener(
 
             object : TextWatcher {

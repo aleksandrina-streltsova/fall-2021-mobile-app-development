@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Widget.ApplicationMCS.VerificationCodeEditText" parent="">
-        <item name="vcet_numberOfSlots">6</item>
+        <item name="vcet_numberOfSlots">5</item>
     </style>
     <style name="Widget.ApplicationMCS.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:minHeight">56dp</item>
