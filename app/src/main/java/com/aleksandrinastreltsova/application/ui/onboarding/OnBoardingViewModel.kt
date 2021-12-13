@@ -15,18 +15,18 @@ class OnBoardingViewModel : BaseViewModel() {
     val viewState: Flow<Long> get() = _viewState.asStateFlow()
 
     var lastScrollTime: Long = 0
-    private val maxStillnessInterval: Long = 4000
+    private val minStillnessInterval: Long = 4000
 
     init {
         lastScrollTime = System.currentTimeMillis()
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 while (true) {
-                    if (System.currentTimeMillis() - lastScrollTime > maxStillnessInterval) {
+                    if (System.currentTimeMillis() - lastScrollTime > minStillnessInterval) {
                         lastScrollTime = System.currentTimeMillis()
                         _viewState.emit(lastScrollTime)
                     }
-                    Thread.sleep(maxStillnessInterval)
+                    Thread.sleep(minStillnessInterval)
                 }
             }
         }

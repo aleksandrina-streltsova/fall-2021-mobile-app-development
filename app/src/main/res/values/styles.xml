@@ -31,12 +31,12 @@
         <item name="android:paddingTop">16dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
-        <item name="android:textColor">@color/brand_blue</item>
+        <item name="android:textColor">@drawable/selector_color_link_button</item>
     </style>
     <style name="Widget.ApplicationMCS.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:background">@color/brand_orange</item>
     </style>
     <style name="Widget.ApplicationMCS.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="android:buttonTint">@color/brand_blue</item>
+        <item name="android:buttonTint">@color/brand_blue_500</item>
     </style>
 </resources>
