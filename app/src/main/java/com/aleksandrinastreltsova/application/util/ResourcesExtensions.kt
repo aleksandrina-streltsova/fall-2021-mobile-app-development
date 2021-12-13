@@ -12,6 +12,7 @@ import com.aleksandrinastreltsova.application.R
 import android.content.res.Resources
 import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.widget.TextView
 import androidx.annotation.StringRes
 
 /**
@@ -42,7 +43,7 @@ fun CheckBox.setClubRulesText(clubRulesClickListener: () -> Unit) {
         override fun onClick(widget: View) = clubRulesClickListener()
         override fun updateDrawState(ds: TextPaint) {
             super.updateDrawState(ds)
-            ds.color = resources.getColor(R.color.brand_blue, null)
+            ds.color = resources.getColor(R.color.brand_blue_500, null)
         }
     }
 
@@ -51,6 +52,17 @@ fun CheckBox.setClubRulesText(clubRulesClickListener: () -> Unit) {
         buildSpannedString {
             inSpans(clubRulesClickSpan) {
                 append(resources.getSpannedString(R.string.sign_up_club_rules))
+            }
+        }
+    )
+}
+
+fun TextView.setTimerHint(seconds: Long) {
+    text = resources.getSpannedString(
+        R.string.email_confirmation_code_available_template,
+        buildSpannedString {
+            inSpans {
+                append((if (seconds < 10) "00:0" else "00:") + seconds.toString())
             }
         }
     )

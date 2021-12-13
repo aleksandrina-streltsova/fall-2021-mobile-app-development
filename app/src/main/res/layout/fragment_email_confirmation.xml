@@ -57,6 +57,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmButton" />
 
+    <TextView
+        android:id="@+id/sendAgainTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:text="@string/email_confirmation_code_available_template"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sendCode" />
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/openEmailButton"
         style="@style/Widget.ApplicationMCS.Button.Secondary"
@@ -69,5 +82,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sendCode" />
+        app:layout_constraintTop_toBottomOf="@id/sendAgainTimer" />
 </androidx.constraintlayout.widget.ConstraintLayout> 
